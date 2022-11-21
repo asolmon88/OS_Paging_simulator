@@ -37,6 +37,8 @@ class shared_data:
 
 def run(private_data, shared_data):
   pointer_out = 0
+  print(f"THREAD....")
+  print("My range:", private_data.page_start, " ,", private_data.page_end)
   private_data.PC[0] = private_data.page_start
   while private_data.PC[0] < private_data.page_end:
     virtual_addr = [private_data.pid, private_data.PC[0], private_data.PC[1]*15]
