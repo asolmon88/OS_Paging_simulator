@@ -10,10 +10,9 @@ threads = []
 
 for thread_num in range(4) :
   private_data = thread_manager.private_data()
-  private_data.pid = 0
+  private_data.pid = thread_num
   private_data.page_start = thread_num * 5
   private_data.page_end = private_data.page_start + 4
-  #print("My range:", private_data.page_start, " ,", private_data.page_end)
   thread = threading.Thread(target=thread_manager.run, args=(private_data,shared_data))
   threads.append(thread)
   thread.start()
