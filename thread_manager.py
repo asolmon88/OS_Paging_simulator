@@ -44,9 +44,11 @@ def run(private_data, shared_data):
   while private_data.PC[0] < private_data.page_end:
     virtual_addr = [private_data.pid, private_data.PC[0], private_data.PC[1]*15]
     print(f"VIRTUAL ADDR = pid: {virtual_addr[0]}, page: {virtual_addr[1]}, disp: {virtual_addr[2]}")
-    sleep(3)
+    sleep(7)
     shared_data.page_table_lock.acquire()
+    print()
     print(f"ESTA TRADUCIENDO EL PROCESO {private_data.pid}")
+    print()
     physical_addr = translate(shared_data.page_table, virtual_addr)
     print(f"Physical addr: {physical_addr}")
     sleep(3)
